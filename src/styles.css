@@ -1,0 +1,351 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.search-bar {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.search-input {
+  width: 70%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  color: red;
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background: white;
+  padding-top: 90px;
+  padding: 20px;
+  border-left: 2px solid #ddd;
+  box-shadow: -2px 0px 6px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  z-index: 1000; /* Ensure this is higher than the map's z-index */
+
+}
+
+.sidebar h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  font-size: 1.2rem;
+  padding: 5px 0;
+}
+
+.sidebar p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #1e1e3f; /* Couleur de fond sombre, inspirée de l'exemple */
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.search-bar {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.5rem;
+  width: 50%;
+  text-align: center;
+  border: 2px solid #ccc;
+}
+
+.content-container {
+  display: flex;
+  height: calc(100vh - 100px);
+  overflow: hidden; /* Empêche un débordement inattendu */
+}
+
+
+.map-container {
+  flex: 3;
+  height: 100%;
+  padding: 10px;
+  background: #282854;
+  border-right: 2px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-container {
+  flex: 3;
+  height: calc(100vh - 100px); /* Ajuste pour éviter que la carte ne prenne toute la hauteur */
+  min-height: 500px; /* Ajoute une hauteur minimum */
+}
+
+
+.sidebar {
+  flex: 1; /* Moins large que la carte */
+  height: 100%;
+  background: #1e1e3f;
+  padding: 20px;
+  color: white;
+  overflow-y: auto;
+}
+
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4CAF50;
+  transition: width 0.5s ease-in-out;
+}
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.leaflet-tooltip {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
+  font-size: 1em;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  color: #222;
+}
+
+
+.sidebar {
+  position: relative;
+}
+
+.sidebar-reset-abstopright {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 20;
+}
+
+.sidebar-reset-button {
+  padding: 8px 18px;
+  font-size: 1.1rem;
+  border: none;
+  background-color: #f8a5ae; /* rouge pastel */
+  color: #7b2121;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-reset-button:hover {
+  background-color: #fbcfd4;
+  color: #a93030;
+}
+
+
+.search-bar-container {
+  position: relative;
+  z-index: 2000;
+}
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  z-index: 1000;
+  /* ...autres styles... */
+}
+
+
+.sidebar {
+  position: relative;
+  padding-top: 24px;
+  background: #1e1e3f;
+  color: white;
+}
+
+.sidebar-reset-abstopright {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 20;
+}
+
+/* Carte statistiques */
+.sidebar-stats-card {
+  background: rgba(255,255,255,0.07);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 18px 18px 10px 18px;
+  margin-bottom: 24px;
+}
+
+.sidebar-stats-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.35rem;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+}
+
+.sidebar-stats-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.07rem;
+  margin: 4px 0;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 14px;
+  background-color: #323285;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4CAF50;
+  transition: width 0.5s;
+  border-radius: 8px;
+}
+
+/* Séparateur */
+.sidebar-separator {
+  border: none;
+  border-top: 1.5px solid #3e3e6b;
+  margin: 24px 0 18px 0;
+}
+
+/* Liste des rues */
+.sidebar-streets-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-streets-list li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #363662;
+  padding: 5px 0;
+  font-size: 1.05rem;
+}
+
+.sidebar-street-name {
+  font-weight: 500;
+}
+
+.sidebar-street-length {
+  color: #8cf1b3;
+  font-size: 0.96em;
+  margin-left: 8px;
+}
+.sidebar-streets-list {
+  max-height: 320px; /* ajuste à ta convenance */
+  overflow-y: auto;
+  margin-bottom: 16px;
+  padding-right: 8px; /* pour éviter que le scroll cache le contenu */
+}
